@@ -1,0 +1,147 @@
+/* Modern UI Theme */
+:root {
+  --primary-gradient: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  --glass-bg: rgba(255, 255, 255, 0.1);
+  --glass-border: rgba(255, 255, 255, 0.2);
+  --transition-speed: 0.3s;
+}
+
+/* Base Styles */
+body {
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+/* Glass Effect Cards */
+.card {
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 1rem 0;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Buttons */
+.button {
+  background: var(--primary-gradient);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  font-weight: 600;
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+  cursor: pointer;
+}
+
+.button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Help Tooltip */
+.help-tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.help-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color var(--transition-speed);
+}
+
+.help-tooltip {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--cardBg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
+  width: 250px;
+  box-shadow: 0 4px 12px var(--shadow);
+  z-index: 1000;
+}
+
+.help-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text);
+  font-size: 1.2rem;
+}
+
+/* Import/Export Section */
+.import-export-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  padding: 1rem;
+}
+
+.export-section,
+.import-section {
+  padding: 1.5rem;
+  background: var(--cardBg);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.import-controls {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.file-input {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--background);
+  color: var(--text);
+}
+
+/* Car Cards */
+.car-card {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  align-items: center;
+}
+
+.car-image {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .import-export-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .car-card {
+    grid-template-columns: 1fr;
+  }
+}
